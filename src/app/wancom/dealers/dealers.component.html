@@ -1,3 +1,37 @@
-<p>
-  dealers works!
-</p>
+<div class="main-content">
+  <div class="container-fluid">
+    <div>
+        <a _ngcontent-nge-c5="" class="btn btn-danger btn-round" href="javascript:void(0)">Add Dealer</a>
+        <a _ngcontent-nge-c5=""  style="float:right;"class="btn btn-danger btn-round" href="javascript:void(0)">Download ExcelSheet Format</a>
+        <a _ngcontent-nge-c5=""  style="float:right;"class="btn btn-danger btn-round" href="javascript:void(0)">Export Excel Sheet</a>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title ">Dealers List</h4>
+                <p class="card-category"> List Of all Dealers and There Sub Dealers</p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>No</th>
+                            <th>Dealer Name</th>
+                            <th>Total SubDealers</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dealer of dealersList">
+                                <td>{{dealer.no}}</td>
+                                <td>{{dealer.name}}</td>
+                                <td>{{dealer.subDealers}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+</div>
+    
