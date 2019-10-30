@@ -1,3 +1,49 @@
-<p>
-  package works!
-</p>
+<div class="main-content">
+    <div class="container-fluid">
+      <div>
+          <a _ngcontent-nge-c5="" class="btn btn-danger btn-round" href="javascript:void(0)">Add Package</a>
+          <a _ngcontent-nge-c5=""  style="float:right;"class="btn btn-danger btn-round" href="javascript:void(0)">Download ExcelSheet Format</a>
+          <a _ngcontent-nge-c5=""  style="float:right;"class="btn btn-danger btn-round" href="javascript:void(0)">Export Excel Sheet</a>
+      </div>
+      <br>
+      <div class="col-md-4">
+          <form class="navbar-form">
+              <div class="input-group no-border">
+                  <input type="text" value="" class="form-control" placeholder="Search Dealer...">
+                  <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                      <i class="material-icons">search</i>
+                      <div class="ripple-container"></div>
+                  </button>
+              </div>
+          </form>
+      </div>
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-header card-header-danger">
+                  <h4 class="card-title ">Pacjkages List</h4>
+                  <p class="card-category"> List Of all Packages</p>
+              </div>
+              <div class="card-body">
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead class=" text-primary">
+                              <th>No</th>
+                              <th>Package Name</th>
+                              <th>Package D.Price</th>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let package of packagesList">
+                                  <td>{{package.no}}</td>
+                                  <td>{{package.name}}</td>
+                                  <td>{{package.dPrice}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+    </div>
+  </div>
+      
