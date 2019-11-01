@@ -44,7 +44,7 @@ export class AddDealerComponent implements OnInit {
   }
   openPackagesModal(){
     const dialogRef = this.dialog.open(AddPackageModalComponent, {
-      width: '250px',
+      width: '500px',
       // data: {name: this.name, animal: this.animal}
     });
 
