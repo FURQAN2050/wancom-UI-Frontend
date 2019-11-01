@@ -1,0 +1,82 @@
+<mat-card>
+    <mat-card-title>Add Dealer Form</mat-card-title>
+    <mat-form-field class="full-width">
+        <mat-label>Dealer Type</mat-label>
+        <mat-select (selectionChange)="selectDealerType($event)" >
+            <mat-option *ngFor="let item of dealerType" [value]="item.no">
+                {{item.type}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field  *ngIf="addSubDealerBoolean" class="full-width">
+        <mat-label>Main Dealer Name</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let dealer of mainDealersList"  [value]="dealer.name">
+                {{dealer.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field *ngIf="!addSubDealerBoolean" class="full-width">
+        <input matInput placeholder="Dealer Name">
+    </mat-form-field>
+    
+    <mat-form-field *ngIf="!addSubDealerBoolean" class="full-width">
+            <input matInput placeholder="Dealer Company Name">
+    </mat-form-field>
+    
+    <mat-form-field *ngIf="addSubDealerBoolean" class="full-width">
+        <input matInput placeholder="Sub Dealer Name">
+    </mat-form-field>
+    
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Dealer PhoneNumbers">
+    </mat-form-field>
+    <mat-checkbox *ngIf="!addSubDealerBoolean" class="example-margin" (change)="addSubdealersOfManDealer(addSubdealersOfMainDealerCheckBox)"[(ngModel)]="addSubdealersOfMainDealerCheckBox">Do You Want To Add Sub-Dealers Of Main Dealer ?</mat-checkbox>
+    <div *ngIf="addSubdealersOfMainDealerCheckBox">
+
+        <div class="row">
+            <div class="col-md-5">
+                    <mat-form-field  class="full-width">
+                            <input matInput [(ngModel)]="MainDealerSubDealersObj.name" placeholder=" SubDealer Name">
+                        </mat-form-field>
+            </div>
+            <div class="col-md-5">
+                    <mat-form-field  class="full-width">
+                            <input matInput [(ngModel)]="MainDealerSubDealersObj.phoneNumber" placeholder="SubDealer phoneNumber ">
+                    </mat-form-field>
+            </div>
+            <div class="colmd-2">
+                    <button mat-mini-fab color="primary" (click)="addSubDealerButton()">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <div *ngFor="let item of mainDealerSubDealers"> -->
+                   <!-- <h5>{{item.name}} {{item.phoneNumber}} <button mat-mini-fab color="danger" (click)="addSubDealerButton()">x</button></h5>  -->
+                   <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">Company Name</th>
+                            <th scope="col">PhoneNumber</th>
+                            <th scope="col">Remove</th>
+                            <th scope="col">Add Packages</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of mainDealerSubDealers">
+                            <th scope="row">{{item.name}}</th>
+                            <td>{{item.phoneNumber}}</td>
+                            <td><button class="btn btn-danger">Remove</button></td>
+                            <td><button class="btn btn-success" color="primary" (click)="openPackagesModal()">+ Pacakges</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <br>
+    <button mat-raised-button color="primary">Submit</button>
+</mat-card>
