@@ -20,6 +20,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
+import { PackagesMainComponent } from './wancom/Packages/packages-main/packages-main.component';
+import { PackagesAddComponent } from './wancom/Packages/packages-add/packages-add.component';
+import { PackagesListComponent } from './wancom/Packages/packages-list/packages-list.component';
 
 @NgModule({
   entryComponents:[AddPackageModalComponent],
@@ -27,7 +30,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     AppComponent,
     DealersMainComponent,
     AddDealerComponent,
-    AddPackageModalComponent
+    AddPackageModalComponent,
+    PackagesMainComponent,
+    PackagesAddComponent,
+    PackagesListComponent
   ],
   imports: [
     BrowserModule,
