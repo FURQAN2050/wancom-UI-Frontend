@@ -24,6 +24,8 @@ import { PackagesMainComponent } from './wancom/Packages/packages-main/packages-
 import { PackagesAddComponent } from './wancom/Packages/packages-add/packages-add.component';
 import { PackagesListComponent } from './wancom/Packages/packages-list/packages-list.component';
 
+// handsonattable
+import { HotTableModule } from '@handsontable/angular';
 @NgModule({
   entryComponents:[AddPackageModalComponent],
   declarations: [
@@ -45,7 +47,8 @@ import { PackagesListComponent } from './wancom/Packages/packages-list/packages-
     MatSelectModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    HotTableModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

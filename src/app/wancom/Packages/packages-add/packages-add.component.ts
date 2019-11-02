@@ -7,7 +7,7 @@ import { GetAllPackagesService } from '../../Services/packages/getAllPackages/ge
   styleUrls: ['./packages-add.component.scss']
 })
 export class PackagesAddComponent implements OnInit {
-  package={};
+  package :any={};
   constructor(public PackageListService:GetAllPackagesService) { 
   }
 
