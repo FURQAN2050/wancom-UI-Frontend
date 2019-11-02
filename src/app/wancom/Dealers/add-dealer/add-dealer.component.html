@@ -12,7 +12,7 @@
         </mat-select>
     </mat-form-field>
     
-    <mat-form-field  *ngIf="addSubDealerBoolean" class="full-width">
+    <mat-form-field  *ngIf="selectedSubDealerBoolean" class="full-width">
         <mat-label>Main Dealer Name</mat-label>
         <mat-select>
             <mat-option *ngFor="let dealer of mainDealersList"  [value]="dealer.name">
@@ -21,22 +21,22 @@
         </mat-select>
     </mat-form-field>
     
-    <mat-form-field *ngIf="!addSubDealerBoolean" class="full-width">
+    <mat-form-field *ngIf="!selectedSubDealerBoolean" class="full-width">
         <input matInput placeholder="Dealer Name">
     </mat-form-field>
     
-    <mat-form-field *ngIf="!addSubDealerBoolean" class="full-width">
+    <mat-form-field *ngIf="!selectedSubDealerBoolean" class="full-width">
             <input matInput placeholder="Dealer Company Name">
     </mat-form-field>
     
-    <mat-form-field *ngIf="addSubDealerBoolean" class="full-width">
+    <mat-form-field *ngIf="selectedSubDealerBoolean" class="full-width">
         <input matInput placeholder="Sub Dealer Name">
     </mat-form-field>
     
     <mat-form-field class="full-width">
         <input matInput placeholder="Dealer PhoneNumbers">
     </mat-form-field>
-    <mat-checkbox *ngIf="!addSubDealerBoolean" class="example-margin" (change)="addSubdealersOfManDealer(addSubdealersOfMainDealerCheckBox)"[(ngModel)]="addSubdealersOfMainDealerCheckBox">Do You Want To Add Sub-Dealers Of Main Dealer ?</mat-checkbox>
+    <mat-checkbox *ngIf="!selectedSubDealerBoolean" class="example-margin" (change)="addSubdealersOfManDealer(addSubdealersOfMainDealerCheckBox)"[(ngModel)]="addSubdealersOfMainDealerCheckBox">Do You Want To Add Sub-Dealers Of Main Dealer ?</mat-checkbox>
     <div *ngIf="addSubdealersOfMainDealerCheckBox">
 
         <div class="row">
@@ -54,7 +54,7 @@
                     <button mat-mini-fab color="primary" (click)="addSubDealerButton()">+</button>
             </div>
         </div>
-        <div class="row" *ngIf="!addSubDealerBoolean">
+        <div class="row" *ngIf="!selectedSubDealerBoolean">
             <div class="col-md-12">
                 <!-- <div *ngFor="let item of mainDealerSubDealers"> -->
                    <!-- <h5>{{item.name}} {{item.phoneNumber}} <button mat-mini-fab color="danger" (click)="addSubDealerButton()">x</button></h5>  -->
@@ -68,7 +68,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let item of mainDealerSubDealers">
+                          <tr *ngFor="let item of mainDealer.mainDealerSubDealers">
                             <th scope="row">{{item.name}}</th>
                             <td>{{item.phoneNumber}}</td>
                             <td><button class="btn btn-danger">Remove</button></td>

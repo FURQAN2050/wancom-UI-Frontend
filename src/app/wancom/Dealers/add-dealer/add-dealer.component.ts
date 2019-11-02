@@ -13,35 +13,39 @@ export class AddDealerComponent implements OnInit {
   subDealer:any={}
   
   
-  mainDealerSubDealers=[];
-  addSubdealersOfMainDealerCheckBox=false;
-  AddSubDealersOfMainDealerBoolean=false;
-  addSubDealerBoolean=false;
+  
+  // addSubdealersOfMainDealerCheckBox=false;
+  selectedSubDealerBoolean=false;  
   MainDealerSubDealersObj:any={};
-  constructor(public dialog: MatDialog) { }
 
-  ngOnInit() {
+
+  constructor(public dialog: MatDialog) { 
+    this.mainDealer.mainDealerSubDealers=[]
+    this.mainDealer.addSubdealersOfMainDealerCheckBox=false;
   }
+
+  ngOnInit() { }
 
   selectDealerType(ev:any ){
      console.log(ev)
     if(ev.value==2)
-      this.addSubDealerBoolean=true;
+      this.selectedSubDealerBoolean=true;
     else{
-      this.addSubDealerBoolean=false; 
-      this.AddSubDealersOfMainDealerBoolean=false;
+      this.selectedSubDealerBoolean=false; 
     }
   }
   
   addSubdealersOfManDealer(addSubdealerBooleancheckBox){
-    console.log(addSubdealerBooleancheckBox,this.addSubdealersOfMainDealerCheckBox)
+    console.log(addSubdealerBooleancheckBox,this.mainDealer.addSubdealersOfMainDealerCheckBox)
   }
+
   addSubDealerButton(){
     let obj={name:this.MainDealerSubDealersObj.name, phoneNumber:this.MainDealerSubDealersObj.phoneNumber}
-    this.mainDealerSubDealers.push(obj)
-    this.mainDealerSubDealers=this.mainDealerSubDealers.reverse();
+    this.mainDealer.mainDealerSubDealers.push(obj)
+    this.mainDealer.mainDealerSubDealers=this.mainDealer.mainDealerSubDealers.reverse();
     this.MainDealerSubDealersObj={}
   }
+
   openPackagesModal(){
     const dialogRef = this.dialog.open(AddPackageModalComponent, {
       width: '500px',
