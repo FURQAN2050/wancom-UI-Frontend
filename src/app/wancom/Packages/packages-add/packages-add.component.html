@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-title>Add Package</mat-card-title>
+    <mat-form-field class="full-width">
+        <input matInput [(ngModel)]="package.code" placeholder="Code">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput [(ngModel)]="package.name" placeholder="Name">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput [(ngModel)]="package.dPrice" placeholder="Default Price">
+    </mat-form-field>
+    <button mat-raised-button color="primary">Submit</button>
+</mat-card>
