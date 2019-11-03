@@ -1,0 +1,18 @@
+
+
+<div class="container-fluid">
+    <div class="vertical-spacing"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <button mat-mini-fab style="float:right;" color="primary" (click)="addSubDealerbuttonClicked()">+</button>
+        </div>
+    </div>
+    <div class="vertical-spacing"></div>
+    <div *ngIf="addSubDealerBoolean" class="row">
+        <div class="col-md-12">
+            <app-sub-dealers-add></app-sub-dealers-add>
+        </div>
+    </div>
+    <div class="vertical-spacing"></div>    
+
+</div>
