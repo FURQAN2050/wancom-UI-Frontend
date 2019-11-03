@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import { GetAllPackagesService } from '../../Services/packages/getAllPackages/get-all-packages.service';
+
 
 @Component({
   selector: 'app-packages-list',
@@ -6,20 +11,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./packages-list.component.scss']
 })
 export class PackagesListComponent implements OnInit {
-  data: any[] = [
-    ['', 'Tesla', 'Mercedes', 'Toyota', 'Volvo'],
-    ['2019', 10, 11, 12, 13],
-    ['2020', 20, 11, 14, 13],
-    ['2021', 30, 15, 12, 13]
-  ]
-  settings: {
-    rowHeaders: true,
-    colHeaders: true,
-    licenseKey: 'non-commercial-and-evaluation'
-  }
-  constructor() { }
-
+  displayedColumns: string[] = ['name','dPrice'];
+  dataSource: MatTableDataSource<any>;
+  
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
-
+  constructor(public getPackagesListService:GetAllPackagesService) {
+       this.dataSource = new MatTableDataSource(this.getPackagesListService.getAllPackages());
+       console.log(this.dataSource)
+  }
 }
+
+  
+
+

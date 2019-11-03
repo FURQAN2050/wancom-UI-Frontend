@@ -20,6 +20,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+
 import { PackagesMainComponent } from './wancom/Packages/packages-main/packages-main.component';
 import { PackagesAddComponent } from './wancom/Packages/packages-add/packages-add.component';
 import { PackagesListComponent } from './wancom/Packages/packages-list/packages-list.component';
@@ -28,6 +30,7 @@ import { PackagesListComponent } from './wancom/Packages/packages-list/packages-
 import { HotTableModule } from '@handsontable/angular';
 import { SubDealersMainComponent } from './wancom/SubDealers/sub-dealers-main/sub-dealers-main.component';
 import { SubDealersAddComponent } from './wancom/SubDealers/sub-dealers-add/sub-dealers-add.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   entryComponents:[AddPackageModalComponent],
   declarations: [
@@ -52,7 +55,9 @@ import { SubDealersAddComponent } from './wancom/SubDealers/sub-dealers-add/sub-
     MatButtonModule,
     MatCheckboxModule,
     MatDialogModule,
-    HotTableModule.forRoot()
+    HotTableModule.forRoot(),
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
