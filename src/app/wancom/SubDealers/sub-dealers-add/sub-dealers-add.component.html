@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-title>Add Group Dealer</mat-card-title>
+    <mat-form-field class="full-width">
+        <input matInput [(ngModel)]="subDealer.code" placeholder="Code">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput [(ngModel)]="subDealer.name" placeholder="Name">
+    </mat-form-field>
+    
+    <mat-form-field class="full-width">
+        <input matInput [(ngModel)]="subDealer.PhoneNumber" placeholder="PhoneNumber">
+    </mat-form-field>
+    <mat-form-field   class="full-width">
+        <mat-label>Main dealer name</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let dealer of mainDealersList"  [value]="dealer.name">
+                {{dealer.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <p>Do you want to add packages? <button mat-button color="primary"> + Add Packages</button></p>
+    <div class="row">
+        <div class="col-md-12">
+            <button mat-raised-button style="float:right;"  color="primary">Submit</button>
+        </div>
+
+    </div>
+</mat-card>
