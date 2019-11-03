@@ -26,6 +26,8 @@ import { PackagesListComponent } from './wancom/Packages/packages-list/packages-
 
 // handsonattable
 import { HotTableModule } from '@handsontable/angular';
+import { SubDealersMainComponent } from './wancom/SubDealers/sub-dealers-main/sub-dealers-main.component';
+import { SubDealersAddComponent } from './wancom/SubDealers/sub-dealers-add/sub-dealers-add.component';
 @NgModule({
   entryComponents:[AddPackageModalComponent],
   declarations: [
@@ -35,7 +37,9 @@ import { HotTableModule } from '@handsontable/angular';
     AddPackageModalComponent,
     PackagesMainComponent,
     PackagesAddComponent,
-    PackagesListComponent
+    PackagesListComponent,
+    SubDealersMainComponent,
+    SubDealersAddComponent
   ],
   imports: [
     BrowserModule,
