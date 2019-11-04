@@ -1,25 +1,9 @@
 <mat-card>
     <!-- <mat-card-title>Add Dealer Form</mat-card-title> -->
-    <button mat-raised-button color="primary">Submit</button>
-    <button mat-raised-button color="primary" style="float:right !important;">Export Excel Sheet</button>
+    <!-- <button mat-raised-button color="primary" style="float:right !important;">Export Excel Sheet</button>
+     -->
     <br>
-    <mat-form-field class="full-width">
-        <mat-label>Dealer Type</mat-label>
-        <mat-select (selectionChange)="selectDealerType($event)" >
-            <mat-option *ngFor="let item of dealerType" [value]="item.no">
-                {{item.type}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
     
-    <mat-form-field  *ngIf="selectedSubDealerBoolean" class="full-width">
-        <mat-label>Main Dealer Name</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let dealer of mainDealersList"  [value]="dealer.name">
-                {{dealer.name}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
     
     <mat-form-field *ngIf="!selectedSubDealerBoolean" class="full-width">
         <input matInput placeholder="Dealer Name">
@@ -29,13 +13,11 @@
             <input matInput placeholder="Dealer Company Name">
     </mat-form-field>
     
-    <mat-form-field *ngIf="selectedSubDealerBoolean" class="full-width">
-        <input matInput placeholder="Sub Dealer Name">
-    </mat-form-field>
     
     <mat-form-field class="full-width">
         <input matInput placeholder="Dealer PhoneNumbers">
     </mat-form-field>
+
     <mat-checkbox *ngIf="!selectedSubDealerBoolean" class="example-margin" (change)="addSubdealersOfManDealer(addSubdealersOfMainDealerCheckBox)"[(ngModel)]="addSubdealersOfMainDealerCheckBox">Do You Want To Add Sub-Dealers Of Main Dealer ?</mat-checkbox>
     <div *ngIf="addSubdealersOfMainDealerCheckBox">
 
@@ -80,6 +62,8 @@
             </div>
         </div>
     </div>
+    <button style="float:right" mat-raised-button color="primary">Submit</button>
+   
     <br>
     
 </mat-card>
