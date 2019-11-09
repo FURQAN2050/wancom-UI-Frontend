@@ -1,29 +1,34 @@
 import { Injectable } from '@angular/core';
-
+import { Package, PackageApi } from 'src/app/shared/sdk';
+import { Subject, BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class GetAllPackagesService {
   
-  allPackages=[];
-  constructor() { 
-    
+  private allPackagesSubject = new BehaviorSubject([]);
+  private selectedPackageSubject = new Subject();
+  constructor(public PackageApi:PackageApi) { 
   }
 
   setAllPackages(){
-    this.allPackages=[
-      {no:1,name:"red",dPrice:"1200"},
-      {no:2,name:"blue",dPrice:"1200"},
-      {no:3,name:"orange",dPrice:"1200"},
-      {no:4,name:"green",dPrice:"1200"},
-      {no:5,name:"yellow",dPrice:"1200"},
-      {no:6,name:"512 Brown",dPrice:"1200"},
-      {no:7,name:"512 Kbps",dPrice:"1200"},
-    ]
+    this.PackageApi.find().subscribe(res=>{
+      res=res.reverse();
+      this.allPackagesSubject.next(res);
+      console.log("packages set Succesfully",res);
+    },er=>{
+      console.log("error occured while getting  all packages",er)
+    })
   }
 
-  getAllPackages(){
-    this.setAllPackages()
-    return this.allPackages
+  getAllPackagesObervable(){
+    return this.allPackagesSubject.asObservable()
+  }
+  
+  public setSelectedPackage(Package: any) {
+    this.selectedPackageSubject.next(Package);
+  }
+  public getselectedPackageObservable() {
+    return this.selectedPackageSubject.asObservable();
   }
 }

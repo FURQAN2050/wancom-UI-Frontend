@@ -6,14 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./packages-main.component.scss']
 })
 export class PackagesMainComponent implements OnInit {
-  addPackageBoolean=false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  addPackagebuttonClicked(){
-    this.addPackageBoolean=true;
-  }
 
 }
