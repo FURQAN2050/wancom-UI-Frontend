@@ -21,6 +21,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 import { PackagesMainComponent } from './wancom/Packages/packages-main/packages-main.component';
 import { PackagesAddComponent } from './wancom/Packages/packages-add/packages-add.component';
@@ -31,6 +33,12 @@ import { HotTableModule } from '@handsontable/angular';
 import { SubDealersMainComponent } from './wancom/SubDealers/sub-dealers-main/sub-dealers-main.component';
 import { SubDealersAddComponent } from './wancom/SubDealers/sub-dealers-add/sub-dealers-add.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SidebarComponent } from './wancom/components/sidebar/sidebar.component';
+import { NavbarComponent } from './wancom/components/navbar/navbar.component';
+
+
+// loopback browser sdk module
+import { SDKBrowserModule } from './shared/sdk/index';
 @NgModule({
   entryComponents:[AddPackageModalComponent],
   declarations: [
@@ -42,12 +50,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     PackagesAddComponent,
     PackagesListComponent,
     SubDealersMainComponent,
-    SubDealersAddComponent
+    SubDealersAddComponent,
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SDKBrowserModule.forRoot(),
     FormsModule,
     MatCardModule,
     MatInputModule,
@@ -57,7 +68,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDialogModule,
     HotTableModule.forRoot(),
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
