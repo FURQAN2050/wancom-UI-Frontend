@@ -7,13 +7,7 @@ import { AddPackageModalComponent } from '../../Modals/add-package-modal/add-pac
   styleUrls: ['./add-dealer.component.scss']
 })
 export class AddDealerComponent implements OnInit {
-  dealerType=[{no:1 , type:"main Dealer"},{no:2,type:"Sub Dealer"}]
-  mainDealersList=[{no:1 , name:"AR Net"},{no:2,name:"Safoora Net"}]
   mainDealer:any={};
-  subDealer:any={}
-  
-  
-  
   // addSubdealersOfMainDealerCheckBox=false;
   selectedSubDealerBoolean=false;  
   MainDealerSubDealersObj:any={};
@@ -26,14 +20,6 @@ export class AddDealerComponent implements OnInit {
 
   ngOnInit() { }
 
-  selectDealerType(ev:any ){
-     console.log(ev)
-    if(ev.value==2)
-      this.selectedSubDealerBoolean=true;
-    else{
-      this.selectedSubDealerBoolean=false; 
-    }
-  }
   
   addSubdealersOfManDealer(addSubdealerBooleancheckBox){
     console.log(addSubdealerBooleancheckBox,this.mainDealer.addSubdealersOfMainDealerCheckBox)

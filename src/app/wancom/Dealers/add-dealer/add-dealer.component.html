@@ -5,11 +5,11 @@
     <br>
     
     
-    <mat-form-field *ngIf="!selectedSubDealerBoolean" class="full-width">
+    <mat-form-field class="full-width">
         <input matInput placeholder="Dealer Name">
     </mat-form-field>
     
-    <mat-form-field *ngIf="!selectedSubDealerBoolean" class="full-width">
+    <mat-form-field  class="full-width">
             <input matInput placeholder="Dealer Company Name">
     </mat-form-field>
     
@@ -18,7 +18,7 @@
         <input matInput placeholder="Dealer PhoneNumbers">
     </mat-form-field>
 
-    <mat-checkbox *ngIf="!selectedSubDealerBoolean" class="example-margin" (change)="addSubdealersOfManDealer(addSubdealersOfMainDealerCheckBox)"[(ngModel)]="addSubdealersOfMainDealerCheckBox">Do You Want To Add Sub-Dealers Of Main Dealer ?</mat-checkbox>
+    <mat-checkbox  class="example-margin" (change)="addSubdealersOfManDealer(addSubdealersOfMainDealerCheckBox)"[(ngModel)]="addSubdealersOfMainDealerCheckBox">Do You Want To Add Sub-Dealers Of Main Dealer ?</mat-checkbox>
     <div *ngIf="addSubdealersOfMainDealerCheckBox">
 
         <div class="row">
