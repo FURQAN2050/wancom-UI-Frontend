@@ -39,6 +39,7 @@ import { NavbarComponent } from './wancom/components/navbar/navbar.component';
 
 // loopback browser sdk module
 import { SDKBrowserModule } from './shared/sdk/index';
+import { DealersListComponent } from './wancom/Dealers/dealers-list/dealers-list.component';
 @NgModule({
   entryComponents:[AddPackageModalComponent],
   declarations: [
@@ -52,7 +53,8 @@ import { SDKBrowserModule } from './shared/sdk/index';
     SubDealersMainComponent,
     SubDealersAddComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    DealersListComponent
   ],
   imports: [
     BrowserModule,

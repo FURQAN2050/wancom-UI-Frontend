@@ -50,6 +50,9 @@ import { SocketConnection } from './sockets/socket.connections';
 import { RealTime } from './services/core/real.time';
 import { UserApi } from './services/custom/User';
 import { PackageApi } from './services/custom/Package';
+import { MainDealerApi } from './services/custom/MainDealer';
+import { SubDealerApi } from './services/custom/SubDealer';
+import { SubDealerPackageApi } from './services/custom/SubDealerPackage';
 /**
 * @module SDKBrowserModule
 * @description
@@ -82,6 +85,9 @@ export class SDKBrowserModule {
         RealTime,
         UserApi,
         PackageApi,
+        MainDealerApi,
+        SubDealerApi,
+        SubDealerPackageApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser },
         { provide: SocketDriver, useClass: SocketBrowser }
