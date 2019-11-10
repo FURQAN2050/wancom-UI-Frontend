@@ -15,8 +15,8 @@ export class AddPackageModalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public getALLpackageService:GetAllPackagesService,
     ) { 
-      this.packageList=this.getALLpackageService.getAllPackages();
-      console.log(this.packageList)
+      // this.packageList=this.getALLpackageService.getAllPackages();
+      // console.log(this.packageList)
     }
 
   onNoClick(): void {

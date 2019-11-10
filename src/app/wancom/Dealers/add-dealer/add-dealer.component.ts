@@ -1,49 +1,80 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddPackageModalComponent } from '../../Modals/add-package-modal/add-package-modal.component';
+import { CreateAndUpdateDealerService } from '../../Services/MainDealers/createAndUpdateDealer/create-and-update-dealer.service';
 @Component({
   selector: 'app-add-dealer',
   templateUrl: './add-dealer.component.html',
   styleUrls: ['./add-dealer.component.scss']
 })
 export class AddDealerComponent implements OnInit {
-  mainDealer:any={};
-  // addSubdealersOfMainDealerCheckBox=false;
-  selectedSubDealerBoolean=false;  
-  MainDealerSubDealersObj:any={};
+  addMode = false;
+  editMode = false;
+  
+  mainDealer: any = {};
+  mainDealerSubDealer:any={};
+  mainDealerSubDealersList:any=[]
+  
 
-
-  constructor(public dialog: MatDialog) { 
-    this.mainDealer.mainDealerSubDealers=[]
-    this.mainDealer.addSubdealersOfMainDealerCheckBox=false;
+  constructor(public dialog: MatDialog,public createDealer:CreateAndUpdateDealerService) {
+    // this.mainDealerSubDealersList=[]
+    this.mainDealer.addSubdealersOfMainDealerCheckBox = false; //checkbox for adding subDealer.
   }
 
   ngOnInit() { }
 
+  addSubdealersOfManDealer(addSubDealerBoolean){
+    console.log(addSubDealerBoolean);
+  }
+
+  addSubDealerButton() {
+    let obj = { name:this.mainDealerSubDealer.name, phoneNumber:this.mainDealerSubDealer.phoneNumber }
+    this.mainDealerSubDealersList.push(obj)
+    this.mainDealerSubDealersList = this.mainDealerSubDealersList.reverse();
+    this.mainDealerSubDealer={}
+  }
+
   
-  addSubdealersOfManDealer(addSubdealerBooleancheckBox){
-    console.log(addSubdealerBooleancheckBox,this.mainDealer.addSubdealersOfMainDealerCheckBox)
+  addDealerButtonbuttonClicked() {
+    this.addMode = true;
+    this.editMode = false;
+    this.mainDealer = {};
   }
 
-  addSubDealerButton(){
-    let obj={name:this.MainDealerSubDealersObj.name, phoneNumber:this.MainDealerSubDealersObj.phoneNumber}
-    this.mainDealer.mainDealerSubDealers.push(obj)
-    this.mainDealer.mainDealerSubDealers=this.mainDealer.mainDealerSubDealers.reverse();
-    this.MainDealerSubDealersObj={}
+  resetDealer() {
+    this.addMode = false;
+    this.editMode = false;
+    this.mainDealer = true;
   }
 
-  openPackagesModal(){
+  removeSubDealer(index){
+    this.mainDealerSubDealersList.splice(index,1);
+  }
+
+  addDealer(){
+    let mainDealerObject={name:this.mainDealer.name,phoneNumber:this.mainDealer.phoneNumber};
+    
+    if(this.mainDealer.addSubdealersOfMainDealerCheckBox && this.mainDealerSubDealersList.length>0)
+      this.createDealer.createDealer(mainDealerObject,this.mainDealerSubDealersList);
+    else
+      this.createDealer.createDealer(mainDealerObject,'undefined');
+
+  }
+
+  editDealer(){
+
+  }
+
+  openPackagesModal() {
     const dialogRef = this.dialog.open(AddPackageModalComponent, {
       width: '500px',
       // data: {name: this.name, animal: this.animal}
     });
-
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log('The dialog was closed');
     //   this.animal = result;
     // });
-  //}
-
+    //}
   }
 
 }
