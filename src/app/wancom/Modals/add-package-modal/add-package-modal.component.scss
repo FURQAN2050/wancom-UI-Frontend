@@ -1,6 +1,23 @@
-.done-btn{
-    align:right;
+.vertical-spacing{
+    margin-top:5px;
 }
-.quantity-textbox{
-    width:50px;
+
+#main {
+    width: 100%;
+}
+.main-heading {
+    margin: 0;
+    display: inline-block;
+}
+.close-btn {
+    float: right;
+    margin-bottom:10px;
+}
+.close-btn-div{
+    text-align:right;
+    float:right;
+}
+
+.submit-btn{
+    float:right;
 }

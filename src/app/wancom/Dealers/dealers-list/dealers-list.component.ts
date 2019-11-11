@@ -5,20 +5,15 @@ import { GetDealersService } from '../../Services/MainDealers/getDealers/get-dea
   selector: 'app-dealers-list',
   templateUrl: './dealers-list.component.html',
   styleUrls: ['./dealers-list.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0', display: 'none' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
 })
 
 export class DealersListComponent implements OnInit {
+  mainDealersList=[];
 
 
   constructor(public getDealers: GetDealersService) {
     this.getDealers.getAllDealersObervable().subscribe(res => {
+      this.mainDealersList=res;
     })
   }
 

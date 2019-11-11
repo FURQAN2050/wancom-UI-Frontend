@@ -1,25 +1,44 @@
 <div class="container-fluid">
+    <div id="main">
+        <h5 class="main-heading">Add subdealers packages </h5> <button class="close-btn" (click)="closeDialog()" mat-button>X</button>
+    </div>
+    <div class="vertical-spacing"></div>
     <div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Search">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Package Name</th>
                     <th>Default Price</th>
                     <th>Quantity</th>
+                    <th>Price</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let package of packageList">
+                <tr *ngFor="let package of packageList;let i=index">
                     <td>{{package.name}}</td>
-                    <td>{{package.dPrice}}</td>
-                    <td><input matInput ></td>
+                    <td>{{package.defaultPrice}}</td>
+                    <td><input [(ngModel)]="packagesTobeAdded[i].quantity" matInput></td>
+                    <td><input [(ngModel)]="packagesTobeAdded[i].price" matInput></td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="row">
-        <div>
-            <button class="btn btn-success done-btn"> Done</button>
+        <div class="col-md-12">
+            <div class="close-btn-div">
+                <button mat-raised-button color="primary" style="margin-right:5px;" (click)="closeDialog()"> Close</button>
+                <button mat-raised-button color="warn" (click)="submit()" class="submit-btn"> Done</button>
+            </div>
+
         </div>
     </div>
 </div>
