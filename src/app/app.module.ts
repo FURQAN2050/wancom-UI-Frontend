@@ -22,6 +22,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 import { PackagesMainComponent } from './wancom/Packages/packages-main/packages-main.component';
@@ -32,7 +34,6 @@ import { PackagesListComponent } from './wancom/Packages/packages-list/packages-
 import { HotTableModule } from '@handsontable/angular';
 import { SubDealersMainComponent } from './wancom/SubDealers/sub-dealers-main/sub-dealers-main.component';
 import { SubDealersAddComponent } from './wancom/SubDealers/sub-dealers-add/sub-dealers-add.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { SidebarComponent } from './wancom/components/sidebar/sidebar.component';
 import { NavbarComponent } from './wancom/components/navbar/navbar.component';
 
@@ -71,7 +72,8 @@ import { DealersListComponent } from './wancom/Dealers/dealers-list/dealers-list
     HotTableModule.forRoot(),
     MatTableModule,
     MatPaginatorModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

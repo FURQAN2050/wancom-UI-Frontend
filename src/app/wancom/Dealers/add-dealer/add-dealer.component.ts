@@ -13,7 +13,8 @@ export class AddDealerComponent implements OnInit {
   
   mainDealer: any = {};
   mainDealerSubDealer:any={};
-  mainDealerSubDealersList:any=[]
+  mainDealerSubDealersList:any=[];
+  subDealersPackages:any=[]
   
 
   constructor(public dialog: MatDialog,public createDealer:CreateAndUpdateDealerService) {
@@ -65,16 +66,27 @@ export class AddDealerComponent implements OnInit {
 
   }
 
-  openPackagesModal() {
+  openPackagesModal(subDealerArrayIndex) {
+    let dataSendtoModal :any=[];
+    
+    if((this.mainDealerSubDealersList[subDealerArrayIndex].subDealersPackages)){
+      console.log((this.mainDealerSubDealersList[subDealerArrayIndex].subDealersPackages));
+      dataSendtoModal=this.mainDealerSubDealersList[subDealerArrayIndex].subDealersPackages;
+    }
+    
     const dialogRef = this.dialog.open(AddPackageModalComponent, {
-      width: '500px',
-      // data: {name: this.name, animal: this.animal}
+      // width: '600px;',
+      data: {packagesList:dataSendtoModal}
     });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.animal = result;
-    // });
-    //}
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+      if(result.updated){
+        this.mainDealerSubDealersList[subDealerArrayIndex].subDealersPackages=result.updated;
+        console.log(this.mainDealerSubDealersList)
+      }
+    });
+    
   }
 
 }
