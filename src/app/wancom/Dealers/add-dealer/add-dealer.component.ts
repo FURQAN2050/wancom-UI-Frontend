@@ -58,7 +58,16 @@ export class AddDealerComponent implements OnInit {
       this.createDealer.createDealer(mainDealerObject,this.mainDealerSubDealersList);
     else
       this.createDealer.createDealer(mainDealerObject,'undefined');
+    this.resetForm();
+  }
 
+  resetForm(){
+    this.mainDealer={};
+    this.mainDealerSubDealer={};
+    this.mainDealerSubDealersList=[];
+    this.subDealersPackages=[];
+    this.addMode = false;
+    this.editMode = false;
   }
 
   editDealer(){

@@ -1,12 +1,13 @@
 
 import { Injectable } from '@angular/core';
 import { MainDealerApi, SubDealerApi, SubDealerPackageApi } from 'src/app/shared/sdk';
+import { GetDealersService } from '../getDealers/get-dealers.service';
 @Injectable({
   providedIn: 'root'
 })
 export class CreateAndUpdateDealerService {
 
-  constructor(public DealerApi: MainDealerApi, public SubDealerApi: SubDealerApi, public subDealersPackagesApi: SubDealerPackageApi) { }
+  constructor(public DealerApi: MainDealerApi, public SubDealerApi: SubDealerApi, public subDealersPackagesApi: SubDealerPackageApi,public getDealers:GetDealersService) { }
 
   public createDealer(mainDealerObject, mainDealersSubDealers?: any, subDealerPackages?: any) {
     this.DealerApi.create(mainDealerObject).subscribe((mainDealer: any) => {
@@ -54,7 +55,8 @@ export class CreateAndUpdateDealerService {
     let subDealerPackagesWithSubDealerId: any = this.addSubDealerIdInPackages(subDealerPackages, createdSubDealerId)
     console.log("sub Dealer packages ready to Start.", subDealerPackagesWithSubDealerId)
     this.subDealersPackagesApi.createMany(subDealerPackagesWithSubDealerId).subscribe(res => {
-      console.log('sub Dealer SuccessFully Created.')
+      console.log('sub Dealer SuccessFully Created.');
+      this.updateDealersList();
     })
   }
 
@@ -70,6 +72,11 @@ export class CreateAndUpdateDealerService {
       subDealer.mainDealerId = mainDealerId;
     });
     return subDealersArray
+  }
+
+  private updateDealersList(){
+    console.log('update Dealers List succesFully')
+    this.getDealers.setAllDealers()
   }
 
 
