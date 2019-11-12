@@ -41,7 +41,6 @@ export class AddPackageModalComponent implements OnInit {
   submit() {
     console.log("packageTobe Added", this.packagesTobeAdded)
     this.dialogRef.close({updated: this.packagesTobeAdded})
-
   }
 
   addIdtopackages(packageList) {

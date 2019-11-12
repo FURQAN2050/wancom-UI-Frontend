@@ -54,11 +54,11 @@ export class AddDealerComponent implements OnInit {
 
   addDealer(){
     let mainDealerObject={name:this.mainDealer.name,phoneNumber:this.mainDealer.phoneNumber};
-    
-    if(this.mainDealer.addSubdealersOfMainDealerCheckBox && this.mainDealerSubDealersList.length>0)
-      this.createDealer.createDealer(mainDealerObject,this.mainDealerSubDealersList);
-    else
-      this.createDealer.createDealer(mainDealerObject,'undefined');
+    console.log('this.main Dealer',this.mainDealerSubDealersList)
+    // if(this.mainDealer.addSubdealersOfMainDealerCheckBox && this.mainDealerSubDealersList.length>0)
+    //   this.createDealer.createDealer(mainDealerObject,this.mainDealerSubDealersList);
+    // else
+    //   this.createDealer.createDealer(mainDealerObject,'undefined');
 
   }
 
