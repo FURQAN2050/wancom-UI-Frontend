@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBoxOpen,faUser, faUsers,faTrophy } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -7,7 +8,12 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class SidebarComponent implements OnInit {
 
-  faBars = faBars;
+  faBoxOpen = faBoxOpen;
+  faUser = faUser;
+  faUsers = faUsers;
+  faTrophy = faTrophy
+
+
   constructor() { }
 
   ngOnInit() {
