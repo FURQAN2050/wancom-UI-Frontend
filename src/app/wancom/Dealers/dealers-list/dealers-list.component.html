@@ -1,7 +1,7 @@
 <mat-card>
     <div *ngFor="let item of mainDealersList" >
         <mat-accordion>
-            <mat-expansion-panel>
+            <mat-expansion-panel (opened)="openExpansionPanel(item)">
                 <mat-expansion-panel-header>
                     <mat-panel-title><h4>{{item.name}}  </h4></mat-panel-title>
                 </mat-expansion-panel-header>
