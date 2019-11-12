@@ -36,7 +36,7 @@ import { SubDealersMainComponent } from './wancom/SubDealers/sub-dealers-main/su
 import { SubDealersAddComponent } from './wancom/SubDealers/sub-dealers-add/sub-dealers-add.component';
 import { SidebarComponent } from './wancom/components/sidebar/sidebar.component';
 import { NavbarComponent } from './wancom/components/navbar/navbar.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // loopback browser sdk module
 import { SDKBrowserModule } from './shared/sdk/index';
@@ -73,7 +73,8 @@ import { DealersListComponent } from './wancom/Dealers/dealers-list/dealers-list
     MatTableModule,
     MatPaginatorModule,
     MatSidenavModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
