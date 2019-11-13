@@ -34,7 +34,7 @@
           </mat-form-field>
         </div>
         <div class="col-md-2">
-          <button mat-mini-fab color="primary" (click)="addSubDealerButton()">+</button>
+          <button [disabled]="!mainDealerSubDealer.name || !mainDealerSubDealer.phoneNumber" mat-mini-fab color="primary" (click)="addSubDealerButton()">+</button>
         </div>
       </div>
       <div class="row" *ngIf="mainDealerSubDealersList.length>0">

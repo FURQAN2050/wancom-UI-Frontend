@@ -1,17 +1,46 @@
+<div class="row">
+        <div class="col-md-12">
+            <div>
+                <mat-form-field>
+                    <input matInput (keyup)="getItems($event)" placeholder="Search">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
 <mat-card>
-    <div *ngFor="let item of mainDealersList" >
+    <div *ngFor="let item of mainDealersList">
         <mat-accordion>
             <mat-expansion-panel (opened)="openExpansionPanel(item)">
                 <mat-expansion-panel-header>
-                    <mat-panel-title><h4>{{item.name}}  </h4></mat-panel-title>
+                    <mat-panel-title>
+                        <h4><fa-icon [icon]="faStar"></fa-icon> {{item.name |uppercase}} </h4>
+                    </mat-panel-title>
                 </mat-expansion-panel-header>
-                <mat-form-field>
-                    <input matInput placeholder="First name">
-                </mat-form-field>
+                <!-- <h5><fa-icon [icon]="faChild"></fa-icon> Sub Dealers</h5> -->
 
-                <mat-form-field>
-                    <input matInput placeholder="Age">
-                </mat-form-field>
+                <div *ngFor="let subDealer of selectedmainDealerSubDealers">
+                    <hr>
+                    <h5><fa-icon [icon]="faCircle"></fa-icon> {{subDealer.name |uppercase}}</h5>
+                    <p><fa-icon [icon]="faPhone"></fa-icon> <a> {{subDealer.phoneNumber}} </a></p>
+                    <h5>Packages</h5>
+                    <table class="table">
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Default Price</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <tr *ngFor="let subDealerPackage of subDealer.subDealersPackages">
+                            <td>{{subDealerPackage.package.code}}</td>
+                            <td>{{subDealerPackage.package.name}}</td>
+                            <td>{{subDealerPackage.package.defaultPrice}}</td>
+                            <td>{{subDealerPackage.quantity}}</td>
+                            <td>{{subDealerPackage.price}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
             </mat-expansion-panel>
         </mat-accordion>
         <div class="vertical-spacing"></div>
